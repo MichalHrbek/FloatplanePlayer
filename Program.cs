@@ -8,13 +8,13 @@ namespace FpV
     {
         static void Main(string[] args)
         {
-            string creatorId = "59f94c0bdd241b70349eb72b";
+            string creatorName = "linustechtips";
             int maxVid = 20;
-            string searchPhrase = "";
+            string searchPhrase = "exclusive"; // Ignores if empty
             string pathToPlayer = @"https://michalhrbek.github.io/Projects/Floatplane/Player";
-            int resolution = 1080; // 480, 720, 1080, 2160(4K), 4320(8K)
+            int resolution = 720; // 480, 720, 1080, 2160(4K), 4320(8K)
 
-            List<Post> Posts = Get.getVideoList(creatorId, maxVid, searchPhrase, 1);
+            List<Post> Posts = Get.getVideoList(GetCreator.Get(creatorName), maxVid, searchPhrase, 1);
 
             for (int i = 0; i < Posts.Count; i++)
             {
