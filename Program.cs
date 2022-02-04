@@ -44,7 +44,6 @@ namespace FpV
                     psi.UseShellExecute = true;
                     psi.FileName = uri;
                     System.Diagnostics.Process.Start(psi);
-                    Console.WriteLine(Posts[num - 1].dislikes);
                 }
                 else
                 {
