@@ -49,7 +49,7 @@ namespace FpV
         public string inviteMode { get; set; }
     }
 
-    public class Root
+    public class FloatplaneCreator
     {
         public string id { get; set; }
         public string owner { get; set; }
@@ -71,13 +71,30 @@ namespace FpV
 
     public static class GetCreator
     {
-        public static string Get(string name)
+        public static string GetURL(string name)
         {
             using (WebClient wc = new WebClient())
             {
                 string url = "https://www.floatplane.com/api/v2/creator/named?creatorURL=" + name;
-                Console.WriteLine(url);
-                return JsonConvert.DeserializeObject<List<Root>>(wc.DownloadString(url))[0].id;
+                return JsonConvert.DeserializeObject<List<FloatplaneCreator>>(wc.DownloadString(url))[0].id;
+            }
+        }
+        public static FloatplaneCreator Get(string name)
+        {
+            using (WebClient wc = new WebClient())
+            {
+                string url = "https://www.floatplane.com/api/v2/creator/named?creatorURL=" + name;
+                return JsonConvert.DeserializeObject<List<FloatplaneCreator>>(wc.DownloadString(url))[0];
+            }
+        }
+        public static List<FloatplaneCreator> GetList()
+        {
+            using (WebClient wc = new WebClient())
+            {
+                string url = "https://www.floatplane.com/api/v3/creator/list";
+                wc.Headers.Add("User-Agent: Other");
+                Console.WriteLine(wc.DownloadString(url));
+                return JsonConvert.DeserializeObject<List<FloatplaneCreator>>(wc.DownloadString(url));
             }
         }
     }
