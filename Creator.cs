@@ -71,15 +71,7 @@ namespace FpV
 
     public static class GetCreator
     {
-        public static string GetURL(string name)
-        {
-            using (WebClient wc = new WebClient())
-            {
-                string url = "https://www.floatplane.com/api/v2/creator/named?creatorURL=" + name;
-                return JsonConvert.DeserializeObject<List<FloatplaneCreator>>(wc.DownloadString(url))[0].id;
-            }
-        }
-        public static FloatplaneCreator Get(string name)
+        public static FloatplaneCreator Get(string name) // Retrieves the creator
         {
             using (WebClient wc = new WebClient())
             {
@@ -87,7 +79,7 @@ namespace FpV
                 return JsonConvert.DeserializeObject<List<FloatplaneCreator>>(wc.DownloadString(url))[0];
             }
         }
-        public static List<FloatplaneCreator> GetList()
+        public static List<FloatplaneCreator> GetList() // Requires authentication, should retrieve the list of all floatplane creators
         {
             using (WebClient wc = new WebClient())
             {
