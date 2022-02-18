@@ -12,7 +12,7 @@ namespace FpV
             int maxVid = 20;
             string searchPhrase = ""; // Ignores if empty
             string pathToPlayer = @"https://michalhrbek.github.io/Projects/FloatplanePlayer";
-            int resolution = 720; // 480, 720, 1080, 2160(4K), 4320(8K)
+            Resoultion resolution = Resoultion._720p;
             
             FloatplaneCreator creator = GetCreator.Get(creatorName);
             List<Post> Posts = Get.getVideoList(creator.id, maxVid, searchPhrase, 1);
@@ -41,7 +41,7 @@ namespace FpV
                 {
                     //Console.WriteLine("https://edge01-na.floatplane.com/Videos/" + Posts[num-1].attachmentOrder[0] + "/" + resolution + ".mp4
                     // Opens url in the browser
-                    var uri = $"{pathToPlayer}?id={Posts[num - 1].attachmentOrder[0]}&res={resolution}&likes={Posts[num - 1].likes}&dislikes={Posts[num - 1].dislikes}";
+                    var uri = $"{pathToPlayer}?id={Posts[num - 1].attachmentOrder[0]}&res={(int)resolution}&likes={Posts[num - 1].likes}&dislikes={Posts[num - 1].dislikes}";
                     var psi = new System.Diagnostics.ProcessStartInfo();
                     psi.UseShellExecute = true;
                     psi.FileName = uri;
