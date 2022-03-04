@@ -8,29 +8,6 @@ using System.Threading.Tasks;
 
 namespace FpV
 {
-    /*public class ChildImage
-    {
-        public int width { get; set; }
-        public int height { get; set; }
-        public string path { get; set; }
-    }
-
-    public class Cover
-    {
-        public int width { get; set; }
-        public int height { get; set; }
-        public string path { get; set; }
-        public List<ChildImage> childImages { get; set; }
-    }
-
-    public class Icon
-    {
-        public int width { get; set; }
-        public int height { get; set; }
-        public string path { get; set; }
-        public List<ChildImage> childImages { get; set; }
-    }*/
-
     public class SocialLinks
     {
         public string instagram { get; set; }
@@ -71,11 +48,11 @@ namespace FpV
 
     public static class GetCreator
     {
-        public static FloatplaneCreator Get(string name) // Retrieves the creator
+        public static FloatplaneCreator Get(string name) // Retrieves the creators info
         {
             using (WebClient wc = new WebClient())
             {
-                string url = "https://www.floatplane.com/api/v2/creator/named?creatorURL=" + name;
+                string url = $"https://www.floatplane.com/api/v2/creator/named?creatorURL={name}";
                 return JsonConvert.DeserializeObject<List<FloatplaneCreator>>(wc.DownloadString(url))[0];
             }
         }
