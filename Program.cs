@@ -11,7 +11,7 @@ namespace FpV
             string creatorName = "linustechtips"; // From the url
             int maxVid = 20; // Anything over 20 doesn't work. 
             int count = 1; // If you want to fecth more posts
-            string searchPhrase = "I broke our"; // Ignores if empty
+            string searchPhrase = ""; // Ignores if empty
             string pathToPlayer = @"https://michalhrbek.github.io/Projects/FloatplanePlayer";
             Resoultion resolution = Resoultion._720p;
             
