@@ -44,7 +44,7 @@ namespace FpV
                 if (num > 0 && num <= Posts.Count)
                 {
 
-                    //The mp4 url (The webapp just plays it in the browser you can play it in any other program like vlc or download it) Console.WriteLine($"https://edge01-na.floatplane.com/Videos/{Posts[num - 1].attachmentOrder[0]}/{resolution}.mp4");
+                    //The mp4 url (The webapp just plays it in the browser you can play it in any other program like vlc or download it) Console.WriteLine($"https://edge01-na.floatplane.com/Videos/{Posts[num - 1].attachmentOrder[0]}/{(int)resolution}.mp4");
                     if (Posts[num - 1].metadata.hasVideo)
                     {
                         for (int i = 0; i < Posts[num - 1].metadata.videoCount; i++)
