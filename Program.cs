@@ -11,7 +11,7 @@ namespace FpV
             string creatorName = "linustechtips"; // From the url
             int maxVid = 20; // Anything over 20 doesn't work. 
             int count = 1; // If you want to fecth more posts
-            string searchPhrase = ""; // Ignores if empty
+            string searchPhrase = "exclusive"; // Ignores if empty
             string pathToPlayer = @"https://michalhrbek.github.io/Projects/FloatplanePlayer";
             Resoultion resolution = Resoultion._720p;
             
@@ -49,7 +49,7 @@ namespace FpV
                     {
                         for (int i = 0; i < Posts[num - 1].metadata.videoCount; i++)
                         {
-                            openURL($"{pathToPlayer}?id={Posts[num - 1].attachmentOrder[0]}&res={(int)resolution}&likes={Posts[num - 1].likes}&dislikes={Posts[num - 1].dislikes}");
+                            openURL($"{pathToPlayer}?id={Posts[num - 1].attachmentOrder[i]}&res={(int)resolution}&likes={Posts[num - 1].likes}&dislikes={Posts[num - 1].dislikes}");
                         }
                     }
                     else Console.WriteLine("No video");
